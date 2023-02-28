@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "totalResults": 27,
+  "articles": [
+    {
+      "source": { "id": "cbs-news", "name": "CBS News" },
+      "author": "Kaylyn McKenna",
+      "title": "Best online clearance deals at Walmart in Feb. 2023: Save up to 65% on tech, home and more",
+      "description": "Shop these great online clearance deals on home, tech and more at Walmart ahead of Presidents' Day.",
+      "url": "https://www.cbsnews.com/essentials/best-walmart-clearance-deals-2023-02-23/",
+      "urlToImage": "https://assets1.cbsnewsstatic.com/hub/i/r/2023/02/06/601d2e19-3d40-461d-be89-719e8209dee1/thumbnail/1200x630/72207dbaf21ab1388981d36bf428341e/vizio-50-inch-v-series-tv.jpg",
+      "publishedAt": "2023-02-23T17:08:00+00:00",
+      "content": "Walmart\r\nLooking for a great deal? Then you need to check out Walmart's clearance section in February 2023. \r\nThere are a ton of online clearance deals to shop at Walmart this Presidents Day. You can… [+29447 chars]"
+    },
+    {
+      "source": { "id": "techcrunch", "name": "TechCrunch" },
+      "author": "Neesha A. Tambe",
+      "title": "Applications are open for the TechCrunch Startup Battlefield 200",
+      "description": "TechCrunch is set to feature 200 early-stage founders as a part of Startup Battlefield, TC's startup launch competition. Founders, apply now!",
+      "url": "https://techcrunch.com/2023/02/23/startup-battlefield-applications-disrupt-2023/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2023/02/SUB200-General-Article-Image-Header-1920x1080-1.png?resize=1200,675",
+      "publishedAt": "2023-02-23T16:41:13Z",
+      "content": "Founders. Are you ready? TechCrunch Editorial is on the hunt for 200 early-stage founders to feature in Startup Battlefield at TechCrunch Disrupt in San Francisco this September. To highlight global … [+3183 chars]"
+    },
+    {
+      "source": { "id": "cbs-news", "name": "CBS News" },
+      "author": "Kaylyn McKenna",
+      "title": "Best deals at Walmart in Feb. 2023: Clearance, rollbacks and more sales",
+      "description": "Shop these great rollbacks and deals on home goods, tech and more at Walmart -- while they last.",
+      "url": "https://www.cbsnews.com/essentials/the-best-walmart-deals-in-february-2023-02-23/",
+      "urlToImage": "https://assets1.cbsnewsstatic.com/hub/i/r/2023/02/22/80c638b0-b216-4ce3-b444-0e73c27011ab/thumbnail/1200x630/4b1977bb90f2df13f9e31b8c3b21ac1b/dyson-handheld-vacuum-hero.jpg",
+      "publishedAt": "2023-02-23T16:39:00+00:00",
+      "content": "You can save on a Dyson vacuum this week at Walmart.\r\nWalmart\r\nPresidents Day may be over, but there are still a ton of great deals to shop at Walmart in February 2023. You can score a new TV or new … [+23772 chars]"
+    }
+  ]
+}
