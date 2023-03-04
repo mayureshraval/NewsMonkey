@@ -2,6 +2,18 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 export class Navbar extends Component {
+  state ={
+    queryInput: ''
+  };
+// use fat arrow to solve the this binding issue.
+  handleOnchange= (event) =>{
+    // this.setState({searchQuery:event.target.value});
+   this.setState({queryInput : event.target.value.trim()});
+  }
+  handleOnclick= ()=> {
+    console.log(this.state.queryInput);
+    this.props.updateSearchQuery(this.state.queryInput!==''? this.state.queryInput : '');
+  }
   render() {
     return (
       <div>
@@ -35,17 +47,18 @@ export class Navbar extends Component {
                         <Link className="nav-link" to="/technology">Technology</Link>
                         </li>
                     </ul>
-                    {/* <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form> */}
+                    <form className="d-flex" role="search" >
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleOnchange} />
+                        <Link className="nav-link" to="/search">
+                          <button className="btn btn-outline-success" type='button' onClick={this.handleOnclick}>Search</button>
+                        </Link>
+                    </form>
                     </div>
                 </div>
                 </nav>
-
       </div>
     )
   }
 }
 
-export default Navbar
+export default Navbar ;
