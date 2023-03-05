@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 
 export class News extends Component {
     static defaultProps = {
-        country: '',
-        pageSize: 5,
+        country: 'us',
+        pageSize: 6,
         apiKey: '7600e354bf9744889480e63d79b08801',
-        sources: 'techcrunch',
+        sources: '',
         category: 'general',
         query:'',
     }
@@ -28,11 +28,11 @@ export class News extends Component {
             articles: [],
             loading: false,
             page: 1,
-            prevQuery:''
+            prevQuery:'',
+            prevCountry:'in'
         }
        
         document.title ="NewsMonkey - " + (this.props.category==='general'? 'All' : this.capitalizeFirstLetter(this.props.category));
-        // console.log("prevq" + this.state.prevQuery);
     }
     
     async handleUpdate() {
@@ -42,31 +42,36 @@ export class News extends Component {
         let parsedData = await data.json()
         console.log(parsedData);
         this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, prevQuery:this.props.query })
-        this.setState({ loading: false });
-        // console.log( "prevq" + this.state.prevQuery);
-    }
+        this.setState({ loading: false });    }
     
-    async componentDidMount() {
-        // if(this.state.query !=='' & this.state.prevQuery !== this.props.query){
+    componentDidMount() {
             this.handleUpdate();
-        // }
     }
     componentDidUpdate(){
         if (this.state.prevQuery!==this.props.query) {
                 this.setState({prevQuery:this.props.query});
                 this.handleUpdate();
-                return console.log('componentDidUpdate() fired');
+                this.setState({page:1});
+                return console.log('componentDidUpdate() fired query');
+        }
+        else if(this.state.prevCountry!==this.props.country){
+            this.setState({prevCountry:this.props.country});
+            this.handleUpdate();
+            this.setState({page:1});
+            return console.log('componentDidUpdate() fired country');
         }
     }
     handlePrevClick =  () => {
-        this.setState({ page: this.state.page - 1,})
-        this.handleUpdate();
+        this.setState({ page: this.state.page - 1, }, () => {
+            this.handleUpdate();
+        });
     }
 
     handleNextClick = () => {
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-            this.setState({ page: this.state.page + 1,})
-            this.handleUpdate();
+            this.setState({ page: this.state.page + 1, }, () => {
+                this.handleUpdate();
+            });
         }
     }
 
@@ -79,7 +84,7 @@ export class News extends Component {
                 <div className="row">
                     {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
                         return <div className="col-md-4 my-4 d-flex justify-content-center" key={element.url}>
-                            <Newsitem title={element.title ? element.title.slice(0, 55) + '...' : ""} description={element.description ? element.description.slice(0, 70) + '...' : ""} imageUrl={element.urlToImage ? '' : './news.jpg'} newsUrl={element.url} author={element.author} publishedAt={element.publishedAt} content={element.content} />
+                            <Newsitem title={element.title ? element.title.slice(0, 55) + '...' : ""} description={element.description ? element.description.slice(0, 70) + '...' : ""} imageUrl={element.urlToImage ? element.urlToImage : './news.jpg'} newsUrl={element.url} author={element.author} publishedAt={element.publishedAt} content={element.content} source={element.source.name}/>
                         </div>
                     })}
                     {!this.state.articles && <h2 className='text-center my-5'>Sorry We are down 😵!</h2>}

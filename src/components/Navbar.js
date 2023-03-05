@@ -7,19 +7,16 @@ export class Navbar extends Component {
   };
 // use fat arrow to solve the this binding issue.
   handleOnchange= (event) =>{
-    // this.setState({searchQuery:event.target.value});
    this.setState({queryInput : event.target.value.trim()});
   }
   handleOnclick= ()=> {
     console.log(this.state.queryInput);
     this.props.updateSearchQuery(this.state.queryInput);
   }
-  // handleEnter = (e) =>{
-  //   if(e.key==='Enter'){
-  //     this.handleOnclick();
-  //     console.log('handle enter worked');
-  //   }
-  // }
+  
+  changeCountry=(e)=>{
+      this.props.changeCountry(e.target.id);   
+  }
   render() {
     return (
       <div>
@@ -52,13 +49,45 @@ export class Navbar extends Component {
                         <li className="nav-item">
                         <Link className="nav-link" to="/technology">Technology</Link>
                         </li>
+                        
+                         {/* country */}
+                          <li className="nav-item">
+                            <div className="dropdown">
+                              <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Country
+                              </button>
+                              <ul className="dropdown-menu">
+                                <li>
+                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='in'>
+                                    <img src="https://flagcdn.com/16x12/in.png" width="16" height="12" alt="India"></img> India 
+                                  </button>
+                                </li>
+                                <li>
+                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='us'>
+                                    <img src="https://flagcdn.com/16x12/us.png" width="16" height="12" alt="USA"></img> USA
+                                  </button>
+                                </li>
+                                <li>
+                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='ru'>
+                                    <img src="https://flagcdn.com/16x12/ru.png" width="16" height="12" alt="Russia"></img> Russia 
+                                  </button>
+                                </li>
+                                <li>
+                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='cn'>
+                                    <img src="https://flagcdn.com/16x12/cn.png" width="16" height="12" alt="China"></img> China
+                                  </button>
+                                </li>
+                              
+                              </ul>
+                            </div>
+                          </li>
+                         {/* country */}
                     </ul>
+                   
                     <div className="d-flex" >
                         <input className="form-control me-2" type="text" placeholder="Search" aria-label="Search" onChange={this.handleOnchange} 
                         onKeyDown={(e)=> { if(e.key==='Enter') this.handleOnclick()}} />
-                        {/* <Link className="nav-link" to="/search"> */}
                           <button className="btn btn-outline-success" type='button' onClick={this.handleOnclick}>Search</button>
-                        {/* </Link> */}
                     </div>
                     </div>
                 </div>
