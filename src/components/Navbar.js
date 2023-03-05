@@ -19,6 +19,26 @@ export class Navbar extends Component {
       this.props.changeCountry(e.target.id);  
       this.setState({country:e.target.id})
   }
+
+  componentDidMount() {
+    // Add event listener to listen for the slash key
+    document.addEventListener("keydown", this.handleSlashKey);
+  }
+
+  componentWillUnmount() {
+    // Remove event listener when the component unmounts
+    document.removeEventListener("keydown", this.handleSlashKey);
+  }
+
+  handleSlashKey = (event) => {
+    // Check if the slash key was pressed
+    if (event.key === "/") {
+      // Set focus on the search input field
+      document.getElementById("searchInput").focus();
+      event.preventDefault();
+      // to avoid typing / after focus
+    }
+  }
   render() {
     return (
       <div>
@@ -87,7 +107,7 @@ export class Navbar extends Component {
                     </ul>
                    
                     <div className="d-flex" >
-                        <input className="form-control me-2" type="text" placeholder="Search" aria-label="Search" onChange={this.handleOnchange} 
+                        <input className="form-control me-2" type="text"id= 'searchInput' placeholder="Search" aria-label="Search" onChange={this.handleOnchange} 
                         onKeyDown={(e)=> { if(e.key==='Enter') this.handleOnclick()}} />
                           <button className="btn btn-outline-success" type='button' onClick={this.handleOnclick}>Search</button>
                     </div>
