@@ -14,10 +14,10 @@ export default class App extends Component {
   };
   pageSize = 6;
   country = 'in';
-  apiKey = '7600e354bf9744889480e63d79b08801';
-  
- 
+  apiKey = '369587ef416f43f08d1de323235e3d56';
+
   render() {
+
     return (
       <>
       {/* 369587ef416f43f08d1de323235e3d56 , 7600e354bf9744889480e63d79b08801 */}
@@ -37,8 +37,7 @@ export default class App extends Component {
             <Route exact path='/sports' element={<News key='sports' pageSize={this.pageSize} apiKey={this.apiKey} sources={''} country={this.country} category={'sports'} query = {this.state.searchQuery}/>} /> 
               
             <Route exact path='/technology' element={<News key='technology' pageSize={this.pageSize} apiKey={this.apiKey} sources={''} country={this.country} category={'technology'} query = {this.state.searchQuery}/>} />
-
-            <Route exact path='/search' element={<News key='search' pageSize={this.pageSize} apiKey={this.apiKey} sources={''} country={this.country} category={''} query = {this.state.searchQuery}/>} /> 
+            
           </Routes>
       </Router>
       </>

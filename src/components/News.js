@@ -10,7 +10,7 @@ export class News extends Component {
         apiKey: '7600e354bf9744889480e63d79b08801',
         sources: 'techcrunch',
         category: 'general',
-        query:''
+        query:'',
     }
     static propTypes = {
         country: PropTypes.string,
@@ -19,29 +19,45 @@ export class News extends Component {
         sources: PropTypes.string,
         category: PropTypes.string
     }
-    constructor() {
-        super();
+    capitalizeFirstLetter=(string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1,
+            prevQuery:''
         }
+       
+        document.title ="NewsMonkey - " + (this.props.category==='general'? 'All' : this.capitalizeFirstLetter(this.props.category));
+        // console.log("prevq" + this.state.prevQuery);
     }
-
+    
     async handleUpdate() {
         let url = `https://newsapi.org/v2/top-headlines?sources=${this.props.sources}&country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}&sortBy=popularity&q=${this.props.query}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
         console.log(parsedData);
-        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults })
+        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, prevQuery:this.props.query })
         this.setState({ loading: false });
+        // console.log( "prevq" + this.state.prevQuery);
     }
-
+    
     async componentDidMount() {
-        this.handleUpdate();
+        // if(this.state.query !=='' & this.state.prevQuery !== this.props.query){
+            this.handleUpdate();
+        // }
     }
-
+    componentDidUpdate(){
+        if (this.state.prevQuery!==this.props.query) {
+                this.setState({prevQuery:this.props.query});
+                this.handleUpdate();
+                return console.log('componentDidUpdate() fired');
+        }
+    }
     handlePrevClick =  () => {
         this.setState({ page: this.state.page - 1,})
         this.handleUpdate();
@@ -57,7 +73,9 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className='text-center my-2'>NewsMonkey - Top Headlines</h1>
+                <h1 className='text-center my-2'>NewsMonkey - Top {this.props.category!=='general' && this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
+                <br />
+                <h5 className='text-muted text-center'>{this.props.query!=='' && "🔎 Search results for " + this.props.query + " - " + this.state.totalResults}</h5>
                 <div className="row">
                     {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
                         return <div className="col-md-4 my-4 d-flex justify-content-center" key={element.url}>
