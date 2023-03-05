@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom'
 
 export class Navbar extends Component {
   state ={
-    queryInput: ''
+    queryInput: '',
+    country:'in'
   };
 // use fat arrow to solve the this binding issue.
   handleOnchange= (event) =>{
@@ -15,7 +16,8 @@ export class Navbar extends Component {
   }
   
   changeCountry=(e)=>{
-      this.props.changeCountry(e.target.id);   
+      this.props.changeCountry(e.target.id);  
+      this.setState({country:e.target.id})
   }
   render() {
     return (
@@ -54,7 +56,7 @@ export class Navbar extends Component {
                           <li className="nav-item">
                             <div className="dropdown">
                               <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Country
+                                Country - {this.state.country.toUpperCase()}
                               </button>
                               <ul className="dropdown-menu">
                                 <li>
