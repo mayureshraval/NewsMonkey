@@ -84,7 +84,7 @@ export class News extends Component {
                 <div className="row">
                     {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
                         return <div className="col-md-4 my-4 d-flex justify-content-center" key={element.url}>
-                            <Newsitem title={element.title ? element.title.slice(0, 55) + '...' : ""} description={element.description ? element.description.slice(0, 70) + '...' : ""} imageUrl={element.urlToImage ? element.urlToImage : './news.jpg'} newsUrl={element.url} author={element.author} publishedAt={element.publishedAt} content={element.content} source={element.source.name}/>
+                            <Newsitem title={element.title ? element.title.slice(0, 60) + '...' : ""} description={element.description ? element.description.slice(0, 85) + '...' : ""} imageUrl={element.urlToImage ? element.urlToImage : './news.jpg'} newsUrl={element.url} author={element.author} publishedAt={element.publishedAt} content={element.content} source={element.source.name}/>
                         </div>
                     })}
                     {!this.state.articles && <h2 className='text-center my-5'>Sorry We are down 😵!</h2>}

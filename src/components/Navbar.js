@@ -73,12 +73,12 @@ export class Navbar extends Component {
                         </li>
                         
                          {/* country */}
-                          <li className="nav-item">
+                          <li className="nav-item mx-2">
                             <div className="dropdown">
                               <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Country - {this.state.country.toUpperCase()}
+                                <img src={`https://flagcdn.com/16x12/${this.state.country}.png`} width="20" height="16" alt="India"></img> {this.state.country.toUpperCase()} 
                               </button>
-                              <ul className="dropdown-menu">
+                              <ul className="dropdown-menu text-center">
                                 <li>
                                   <button className="dropdown-item" type="button" onClick={this.changeCountry} id='in'>
                                     <img src="https://flagcdn.com/16x12/in.png" width="16" height="12" alt="India"></img> India 
