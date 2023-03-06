@@ -80,23 +80,23 @@ export class Navbar extends Component {
                               </button>
                               <ul className="dropdown-menu text-center">
                                 <li>
-                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='in'>
-                                    <img src="https://flagcdn.com/16x12/in.png" width="16" height="12" alt="India"></img> India 
+                                  <button className="dropdown-item fs-5" type="button" onClick={this.changeCountry} id='in'>
+                                    <img src="https://flagcdn.com/16x12/in.png" width="22" height="18" alt="India"></img> India 
                                   </button>
                                 </li>
                                 <li>
-                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='us'>
-                                    <img src="https://flagcdn.com/16x12/us.png" width="16" height="12" alt="USA"></img> USA
+                                  <button className="dropdown-item fs-5" type="button" onClick={this.changeCountry} id='us'>
+                                    <img src="https://flagcdn.com/16x12/us.png" width="22" height="18" alt="USA"></img> USA
                                   </button>
                                 </li>
                                 <li>
-                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='ru'>
-                                    <img src="https://flagcdn.com/16x12/ru.png" width="16" height="12" alt="Russia"></img> Russia 
+                                  <button className="dropdown-item fs-5" type="button" onClick={this.changeCountry} id='ru'>
+                                    <img src="https://flagcdn.com/16x12/ru.png" width="22" height="18" alt="Russia"></img> Russia 
                                   </button>
                                 </li>
                                 <li>
-                                  <button className="dropdown-item" type="button" onClick={this.changeCountry} id='cn'>
-                                    <img src="https://flagcdn.com/16x12/cn.png" width="16" height="12" alt="China"></img> China
+                                  <button className="dropdown-item fs-5" type="button" onClick={this.changeCountry} id='cn'>
+                                    <img src="https://flagcdn.com/16x12/cn.png" width="22" height="18" alt="China"></img> China
                                   </button>
                                 </li>
                               
