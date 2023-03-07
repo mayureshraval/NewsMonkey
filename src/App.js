@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 import News from './components/News';
 export default class App extends Component {
   pageSize = 6;
-  apiKey = '369587ef416f43f08d1de323235e3d56';
+  apiKey = process.env.REACT_APP_API_KEY;
   state = {
     searchQuery: '',
     country: 'in',
@@ -27,7 +27,6 @@ export default class App extends Component {
 
     return (
       <>
-      {/* 369587ef416f43f08d1de323235e3d56 , 7600e354bf9744889480e63d79b08801, e98fb163b35540948d47d641f8de2821 */}
       <Router>
          <LoadingBar
             color='#11951e'
