@@ -6,7 +6,8 @@ import Navbar from './components/Navbar'
 import News from './components/News';
 export default class App extends Component {
   pageSize = 6;
-  apiKey = process.env.REACT_APP_API_KEY;
+  // apiKey = process.env.REACT_APP_API_KEY;
+  apiKey = 'e98fb163b35540948d47d641f8de2821';
   state = {
     searchQuery: '',
     country: 'in',
