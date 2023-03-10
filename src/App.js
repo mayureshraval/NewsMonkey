@@ -7,7 +7,7 @@ import News from './components/News';
 export default class App extends Component {
   pageSize = 6;
   // apiKey = process.env.REACT_APP_API_KEY;
-  apiKey = 'e98fb163b35540948d47d641f8de2821';
+  apiKey = '369587ef416f43f08d1de323235e3d56';
   state = {
     searchQuery: '',
     country: 'in',

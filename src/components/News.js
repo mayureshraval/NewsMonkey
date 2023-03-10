@@ -71,7 +71,7 @@ export class News extends Component {
     }
     fetchMoreData=()=>{
         this.setState({page:this.state.page + 1} , async ()=>{
-             this.setState({ loading: true });
+            //  this.setState({ loading: true });
             
             this.props.setProgress(20);
             let url = `https://newsapi.org/v2/top-headlines?sources=${this.props.sources}&country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}&sortBy=popularity&q=${this.props.query}`;
@@ -80,7 +80,7 @@ export class News extends Component {
             let parsedData = await data.json()
             this.props.setProgress(80);
             console.log(parsedData);
-            this.setState({ loading: false }); 
+            // this.setState({ loading: false }); 
             
             // when new articles come we add them to previous articles.
             this.setState({totalResults: parsedData.totalResults, articles: this.state.articles.concat(parsedData.articles),  prevQuery:this.props.query })
@@ -99,7 +99,7 @@ export class News extends Component {
 
                
                 {/* infinite scroll */}
-                {this.state.articles && 
+                {!this.state.loading && this.state.articles && 
                  <InfiniteScroll
                  dataLength={this.state.articles.length}
                  next={this.fetchMoreData}
