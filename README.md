@@ -3,7 +3,7 @@ NewsMonkey - See world wide news among your favourite categories.
 2. Is fully responsive among all the screensizes Mobile, Tablets, Laptops, 4k hd monitor, etc.
 3. Can view news from India, Russia, China, USA.
 4. Has different categories for news.
-5. Search for articles using the search bar, and search will work among different categories.
+5. Search for articles using the search bar or press '/' to jump on search bar, and search will work among different categories.
 6. Error handling - Message will be displayed if api key is exhausted or search results in no article.
 
 Technologies used -  
